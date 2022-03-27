@@ -1,26 +1,7 @@
 import $ from "jquery";
-import { getCLS, getFID, getLCP } from "web-vitals";
-export class GoogleAnalytics {
-  sendToGoogleAnalytics({ name, delta, id }) {
-    window.gtag("event", name, {
-      event_category: "web_vitals",
-      event_label: id,
-      value: Math.round(name === "CLS" ? delta * 1000 : delta),
-      non_interaction: true,
-    });
-  }
-
-  trackCoreWebVitals() {
-    getCLS(this.sendToGoogleAnalytics);
-    getFID(this.sendToGoogleAnalytics);
-    getLCP(this.sendToGoogleAnalytics);
-  }
-}
 
 $(function () {
   $.ajax(window.BASE_PREFIX + "/dropdown/templates.json").done(function (data) {
-    const GAInstance = new GoogleAnalytics();
-    GAInstance.trackCoreWebVitals();
 
     // bootstrap select2
     $("#input-gitignore").select2({

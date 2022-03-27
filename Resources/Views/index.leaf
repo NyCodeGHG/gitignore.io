@@ -6,7 +6,6 @@
     <base href="#(basePrefixString)">
     <script>
       window.BASE_PREFIX = "#(basePrefixString)".replace(/\/+$/, '');
-      window.GOOGLE_ANALYTICS_UID = "#(googleAnalyticsUIDString)";
     </script>
 
     <!-- Meta -->
@@ -46,24 +45,13 @@
     <link rel="stylesheet" type="text/css" href="assets/main.css">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=#(googleAnalyticsUIDString)"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-left-column">
-                <a href="https://www.toptal.com/developers" aria-label="Toptal" title="Toptal">
-                    <img src="img/toptal-logo-wordmark.svg" height="30" width="100" alt="Toptal" />
-                </a>
-                <h1>gitignore.io</h1>
-            </div>
-            <div class="header-right-column">
-                <a href="https://github.com/toptal/gitignore.io" aria-label="#(sourceCodeDescriptionString)" title="#(sourceCodeDescriptionString)">
-                    <img src="img/github-logo.svg" alt="GitHub" width="24" height="24" />
-                </a>
-            </div>
+            <a href="https://github.com/toptal/gitignore.io" aria-label="#(sourceCodeDescriptionString)" title="#(sourceCodeDescriptionString)">
+                <img src="img/github-logo.svg" alt="GitHub" width="24" height="24" />
+            </a>
         </div>
     </header>
 
@@ -99,25 +87,9 @@
                 </div>
             </div>
         </main>
-        #embed("internal-linking")
     </div>
 
     <!-- Footer Scripts -->
     <script async src="assets/main.js"></script>
-    <script async>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-
-        gtag('js', new Date());
-
-        gtag('config', "#(googleAnalyticsUIDString)", {
-            'content_group1': 'Git Ignore',
-            'custom_map': { 'dimension10': 'client_id' }
-        });
-
-        setTimeout(function() {
-            gtag('event', 'read', { 'event_category': '15_seconds' });
-        }, 15000);
-    </script>
 </body>
 </html>
